@@ -1,16 +1,30 @@
-# Createtestingapplication
+## Setup
+1. Install dependencies: `pip install -r requirements.txt`
+2. Create a .env file from the example: `cp .env.example .env`
+3. Run the application: `uvicorn app.main:app --reload`
 
-## Project Overview
+## API Endpoints
+### /arithmetic/{operation}
+Perform arithmetic operation
+* Method: GET
+* Path Parameters:
+  + operation (string)
+  + num1 (number)
+  + num2 (number)
+* Response:
+  + result (number)
 
-The Createtestingapplication project aims to create a backend API using FastAPI and SQLAlchemy to support the provided frontend application.
+### /input
+Validate user input
+* Method: POST
+* Request Body:
+  + input (string)
+* Response:
+  + valid (boolean)
+  + error (string)
 
-## Setup Instructions
-
-1. Clone the repository
-2. Install the dependencies using pip: `pip install -r requirements.txt`
-3. Create a new file named `.env` and add your environment variables
-4. Run the application using `uvicorn main:app --host 0.0.0.0 --port 8000`
-
-## API Documentation
-
-The API documentation can be found at `http://localhost:8000/docs`
+### /data
+Retrieve in-memory data storage
+* Method: GET
+* Response:
+  + data (object)
