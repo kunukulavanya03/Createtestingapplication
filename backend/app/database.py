@@ -1,8 +1,7 @@
 from sqlalchemy import create_engine
-from sqlalchemy.orm import declarative_base, sessionmaker
-from app.config import Settings
+from sqlalchemy.orm import declarative_base
+from sqlalchemy import Column, Integer, String, Float
+from app.config import settings
 
-engine = create_engine(Settings().DATABASE_URL)
+engine = create_engine(settings.DATABASE_URL)
 Base = declarative_base()
-
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
